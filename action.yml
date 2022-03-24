@@ -1,0 +1,23 @@
+name: Convox Build Migrate
+description: Run a command
+author: Convox
+inputs:
+  rack:
+    description: Convox Rack name
+    required: true
+  app:
+    description: Convox app name
+    required: true
+  build:
+    description: The build to move across racks
+    required: true
+  source:
+    description: The source rack
+    required: true
+  destination:
+    description: The destination rack
+    required: true
+
+runs:
+  using: docker
+  image: Dockerfile
