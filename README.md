@@ -27,13 +27,16 @@ steps:
   uses: convox/action-login@v2
   with:
     password: ${{ secrets.CONVOX_DEPLOY_KEY }}
-
-- name: Export database
+- name: build
+  uses: digivizer/action-build@master
+  with:
+    rack: staging
+    app: myapp
+- name: move the build
   uses: convox/action-build-move@master
   with:
     rack: staging
     app: myapp
     build: RTMYCXTCPUY
-    source: staging
     destination: production
 ```
